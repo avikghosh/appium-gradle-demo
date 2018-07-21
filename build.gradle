@@ -1,0 +1,24 @@
+group 'com.avikghosh'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    testLogging {
+        outputs.upToDateWhen {false}
+        showStandardStreams = true
+    }
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+}
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.8'
+    testCompile group: 'io.appium', name: 'java-client', version: '6.0.0'
+}
